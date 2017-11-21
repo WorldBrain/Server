@@ -11,6 +11,8 @@ services:
       - "${ANALYTICS_HTTP_PORT}:80"
     networks:
       - worldbrain
+    volumes:
+      - "${PIWIK_CONF_PATH}:/var/www/html/config"
     depends_on:
       - db
 
