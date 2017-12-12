@@ -5,9 +5,10 @@
 1. [install Docker CE](https://www.docker.com/community-edition#/download)
 2. [install Docker Compose](https://docs.docker.com/compose/install/)
 3. make a new `.env` file for `docker-compose` to use __(copy `.env.example` and change as needed)__
-4. run `docker-compose up -d analytics` to start up the docker containers in the background
-5. visit `localhost:ANALYTICS_HTTP_PORT` in your browser __(where `ANALYTICS_HTTP_PORT` is whatever port number defined in `.env`)__
-6. complete Piwik installation wizard
+4. ensure you have some SSL cert keypair in `$NGINX_SSL_PATH` named `analytics.worldbrain.io.{crt,key}`
+5. run `docker-compose up -d` to start up the docker containers in the background
+6. visit `localhost:ANALYTICS_HTTP_PORT` in your browser __(where `ANALYTICS_HTTP_PORT` is whatever port number defined in `.env`)__
+7. complete Piwik installation wizard
 
 During the Piwik installation wizard, the connection to the DB will need to be set up. When asked, simply set the database server to `db`, `root` for username, and use the root DB password as you specified in `.env`. Db name can be anything.
 
