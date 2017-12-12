@@ -15,10 +15,11 @@ services:
     networks:
       - worldbrain
     ports:
-      - "80"
-      - "443"
+      - "80:80"
+      - "443:443"
     depends_on:
       - analytics
+    restart: always
 
 ### Piwik Container ##################################
 
@@ -31,6 +32,7 @@ services:
       - "${PIWIK_CONF_PATH}:/var/www/html/config"
     depends_on:
       - db
+    restart: always
 
 ### MariaDB Container ##################################
 
@@ -45,6 +47,7 @@ services:
       - "${DB_DATA_PATH}:/var/lib/mysql"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    restart: always
 
 ### Networks Setup ############################################
 
