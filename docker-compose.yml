@@ -19,6 +19,8 @@ services:
   db:
     image: mariadb
     container_name: db
+    ports:
+      - "${MYSQL_LOCAL_PORT}:3306"
     networks:
       - worldbrain
     volumes:
