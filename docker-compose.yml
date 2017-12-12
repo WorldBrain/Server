@@ -5,10 +5,8 @@ services:
 ### Piwik Container ##################################
 
   analytics:
-    image: piwik:latest
+    image: piwik:fpm
     container_name: analytics
-    ports:
-      - "${ANALYTICS_HTTP_PORT}:80"
     networks:
       - worldbrain
     volumes:
