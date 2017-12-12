@@ -1,6 +1,24 @@
-version: '3'
+version: '2'
 
 services:
+
+### Nginx Proxy Container ##################################
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - "${NGINX_CONF_PATH}:/etc/nginx/nginx.conf:ro"
+      - "${NGINX_SSL_PATH}:/etc/ssl:ro"
+    volumes_from:
+      - analytics
+    networks:
+      - worldbrain
+    ports:
+      - "80"
+      - "443"
+    depends_on:
+      - analytics
 
 ### Piwik Container ##################################
 
